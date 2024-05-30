@@ -153,8 +153,9 @@ strong {
   font-size: 2rem;
 }
 
-.pizza.sold-out {
+.pizza.sold-out span {
   color: #888;
+  font-weight: 500;
 }
 
 .pizza.sold-out img {
