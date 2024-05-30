@@ -118,16 +118,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>
-            We're open until&nbsp;
-            <strong>
-              {new Date(closeHour).toLocaleTimeString().slice(0, 5)}
-            </strong>
-            . Come visit us or order online.
-          </p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
         <p className="closed">
           We're happy to welcome you between&nbsp;
@@ -142,6 +133,19 @@ function Footer() {
         </p>
       )}
     </footer>
+  );
+}
+
+function Order({ closeHour }) {
+  return (
+    <div className="order">
+      <p>
+        We're open until&nbsp;
+        <strong>{new Date(closeHour).toLocaleTimeString().slice(0, 5)}</strong>.
+        Come visit us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
