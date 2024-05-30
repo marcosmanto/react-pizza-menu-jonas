@@ -72,7 +72,7 @@ function Menu() {
 
       {pizzaData.length > 0 ? (
         <ul className="pizzas">
-          {pizzaData.map(({ name, ingredients, photoName, price }) => (
+          {pizzaData.map(({ name, ingredients, photoName, price, soldOut }) => (
             <Pizza
               name={name}
               ingredient={ingredients}
@@ -82,6 +82,7 @@ function Menu() {
                   $<strong>{price}</strong>
                 </>
               }
+              soldOut={soldOut}
               key={name}
             />
           ))}
@@ -93,7 +94,9 @@ function Menu() {
   );
 }
 
-function Pizza({ name, ingredient, photoName, price }) {
+function Pizza({ name, ingredient, photoName, price, soldOut }) {
+  if (soldOut) return null;
+
   return (
     <li className="pizza">
       <img src={photoName} alt={name} />
